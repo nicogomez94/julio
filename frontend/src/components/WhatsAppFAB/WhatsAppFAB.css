@@ -1,0 +1,31 @@
+.wa-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+  z-index: 100;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.wa-fab .material-symbols-outlined {
+  font-size: 28px;
+}
+
+.wa-fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.6);
+}
+
+.wa-fab:active {
+  transform: scale(0.95);
+}
