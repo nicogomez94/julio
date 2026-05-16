@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCart }    from '../../context/CartContext.jsx';
+import { useCart } from '../../context/CartContext.jsx';
 import { useSettings } from '../../context/SettingsContext.jsx';
 import './Navbar.css';
 
 export default function Navbar() {
   const { totalItems, setIsOpen } = useCart();
   const { settings }              = useSettings();
-  const navigate                  = useNavigate();
   const [scrolled, setScrolled]   = useState(false);
   const [menuOpen, setMenuOpen]   = useState(false);
+  const navigate                  = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -23,6 +23,11 @@ export default function Navbar() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   }
 
+  function goHome() {
+    setMenuOpen(false);
+    navigate('/');
+  }
+
   function handlePedirAhora() {
     const phone = settings.whatsapp_number || '5491112345678';
     const msg   = '¡Hola! Quiero hacer un pedido 🍽️';
@@ -32,15 +37,14 @@ export default function Navbar() {
   return (
     <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
       <div className="navbar__inner container">
-        <div className="navbar__brand" onClick={() => scrollTo('inicio')} style={{ cursor: 'pointer' }}>
+        <div className="navbar__brand" onClick={goHome} style={{ cursor: 'pointer' }}>
           <div className="navbar__logo-circle">🍽</div>
           <span className="navbar__brand-name">Viandas Chanetón</span>
         </div>
 
         <nav className={`navbar__links${menuOpen ? ' navbar__links--open' : ''}`}>
-          <button onClick={() => scrollTo('inicio')}>Inicio</button>
-          <button onClick={() => scrollTo('menu')}>Menú</button>
-          <button onClick={() => scrollTo('viandas')}>Viandas</button>
+          <button onClick={goHome}>Inicio</button>
+          <Link to="/menu" onClick={() => setMenuOpen(false)}>Menú</Link>
           <button onClick={() => scrollTo('contacto')}>Contacto</button>
         </nav>
 

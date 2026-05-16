@@ -18,9 +18,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 16px var(--space-gutter);
   gap: 16px;
+}
+
+.navbar__inner.container {
+  padding: 16px var(--space-gutter);
+}
+
+@media (min-width: 768px) {
+  .navbar__inner.container {
+    padding: 18px var(--space-margin);
+  }
 }
 
 /* Brand */
@@ -67,7 +76,7 @@
   font-weight: 600;
   color: #57534e;
   cursor: pointer;
-  padding: 4px 0;
+  padding: 8px 2px;
   transition: color 0.15s;
 }
 

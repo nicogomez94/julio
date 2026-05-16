@@ -5,6 +5,7 @@ import { CartProvider }                from './context/CartContext.jsx';
 import { isDebugMode }                 from './utils/helpers.js';
 
 import Home         from './pages/Home.jsx';
+import MenuPage     from './pages/MenuPage.jsx';
 import AdminLogin   from './pages/AdminLogin.jsx';
 import AdminLayout  from './pages/AdminLayout.jsx';
 import ProductList  from './components/Admin/ProductList.jsx';
@@ -31,6 +32,7 @@ export default function App() {
             <DebugBanner />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/menu" element={<MenuPage />} />
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route
                 path="/admin"

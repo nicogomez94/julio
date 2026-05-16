@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link }        from 'react-router-dom';
 import { api }         from '../../services/api.js';
 import { useCart }     from '../../context/CartContext.jsx';
 import { formatPrice } from '../../utils/helpers.js';
@@ -43,10 +44,6 @@ export default function ProductsSection() {
   const card3     = featured[2];
   const card4     = featured[3];
 
-  function scrollToViandas() {
-    document.getElementById('viandas')?.scrollIntoView({ behavior: 'smooth' });
-  }
-
   return (
     <>
       {/* ── Especiales del Día (featured bento grid) ── */}
@@ -57,10 +54,6 @@ export default function ProductsSection() {
               <h2 className="products__title">Especiales del Día</h2>
               <p className="products__subtitle">Platos frescos preparados hoy mismo por nuestros maestros cocineros.</p>
             </div>
-            <button className="products__see-all" onClick={scrollToViandas}>
-              Ver menú completo
-              <span className="material-symbols-outlined">arrow_forward</span>
-            </button>
           </div>
 
           {loading ? (
@@ -187,10 +180,16 @@ export default function ProductsSection() {
       {/* ── Menú completo por categoría ── */}
       <section id="viandas" className="all-products section-xl">
         <div className="container">
-          <h2 className="products__title">Menú Completo</h2>
-          <p className="products__subtitle" style={{ marginBottom: '32px' }}>
-            Todos nuestros platos disponibles hoy.
-          </p>
+          <div className="products__header" style={{ marginBottom: '32px' }}>
+            <div>
+              <h2 className="products__title">Menú</h2>
+              <p className="products__subtitle">Todos nuestros platos disponibles.</p>
+            </div>
+            <Link to="/menu" className="products__see-all">
+              Ver más
+              <span className="material-symbols-outlined">arrow_forward</span>
+            </Link>
+          </div>
 
           {/* Category filter */}
           <div className="all-products__filters">
