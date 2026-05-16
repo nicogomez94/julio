@@ -12,24 +12,15 @@ const SETTING_FIELDS = [
     { key: 'schedule_weekend',  label: 'Horario fin de semana',                     placeholder: 'Dom: 11:00 - 15:00' },
     { key: 'maps_embed_url',    label: 'URL embed Google Maps (iframe src)',        placeholder: 'https://www.google.com/maps/embed?...', type: 'textarea' },
   ]},
-  { section: 'Hero (portada)', fields: [
-    { key: 'hero_badge',    label: 'Badge / subtítulo del hero',  placeholder: 'Tradición Familiar desde 1992' },
-    { key: 'hero_title',    label: 'Título principal',            placeholder: 'El placer de la comida real...' },
-    { key: 'hero_subtitle', label: 'Subtítulo / descripción',     placeholder: '...', type: 'textarea' },
-    { key: 'hero_image_url', label: 'URL imagen de fondo del hero', placeholder: 'https://...' },
-  ]},
-  { section: 'Nuestra Historia', fields: [
-    { key: 'about_years',     label: 'Años de historia',     placeholder: '32' },
-    { key: 'about_title',     label: 'Título sección',       placeholder: 'Sabor que trasciende generaciones' },
-    { key: 'about_text_1',    label: 'Párrafo 1',            placeholder: '...', type: 'textarea' },
-    { key: 'about_text_2',    label: 'Párrafo 2',            placeholder: '...', type: 'textarea' },
-    { key: 'about_image_url', label: 'URL imagen historia',  placeholder: 'https://...' },
-  ]},
   { section: 'Redes Sociales', fields: [
     { key: 'instagram_url', label: 'URL Instagram', placeholder: 'https://instagram.com/...' },
     { key: 'facebook_url',  label: 'URL Facebook',  placeholder: 'https://facebook.com/...' },
   ]},
 ];
+
+const EDITABLE_SETTING_KEYS = SETTING_FIELDS.flatMap((section) =>
+  section.fields.map((field) => field.key)
+);
 
 export default function SettingsManager() {
   const debug = isDebugMode();
@@ -56,7 +47,10 @@ export default function SettingsManager() {
     setSuccess('');
     setSaving(true);
     try {
-      await api.updateSettings(settings);
+      const payload = Object.fromEntries(
+        EDITABLE_SETTING_KEYS.map((key) => [key, settings[key] || ''])
+      );
+      await api.updateSettings(payload);
       setSuccess('Configuración guardada correctamente.');
     } catch (err) {
       setError(err.message);

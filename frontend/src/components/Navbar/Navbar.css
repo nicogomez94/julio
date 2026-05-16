@@ -68,7 +68,8 @@
   gap: 32px;
 }
 
-.navbar__links button {
+.navbar__links button,
+.navbar__links a {
   background: none;
   border: none;
   font-family: var(--font-headline);
@@ -80,7 +81,8 @@
   transition: color 0.15s;
 }
 
-.navbar__links button:hover {
+.navbar__links button:hover,
+.navbar__links a:hover {
   color: var(--color-primary);
 }
 

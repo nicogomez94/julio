@@ -17,12 +17,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  function scrollTo(id) {
-    setMenuOpen(false);
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  }
-
   function goHome() {
     setMenuOpen(false);
     navigate('/');
@@ -45,7 +39,7 @@ export default function Navbar() {
         <nav className={`navbar__links${menuOpen ? ' navbar__links--open' : ''}`}>
           <button onClick={goHome}>Inicio</button>
           <Link to="/menu" onClick={() => setMenuOpen(false)}>Menú</Link>
-          <button onClick={() => scrollTo('contacto')}>Contacto</button>
+          <Link to="/contacto" onClick={() => setMenuOpen(false)}>Contacto</Link>
         </nav>
 
         <div className="navbar__actions">

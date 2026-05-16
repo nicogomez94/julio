@@ -6,6 +6,7 @@ import { isDebugMode }                 from './utils/helpers.js';
 
 import Home         from './pages/Home.jsx';
 import MenuPage     from './pages/MenuPage.jsx';
+import ContactPage  from './pages/ContactPage.jsx';
 import AdminLogin   from './pages/AdminLogin.jsx';
 import AdminLayout  from './pages/AdminLayout.jsx';
 import ProductList  from './components/Admin/ProductList.jsx';
@@ -33,6 +34,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/menu" element={<MenuPage />} />
+              <Route path="/contacto" element={<ContactPage />} />
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route
                 path="/admin"
