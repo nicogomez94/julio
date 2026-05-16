@@ -23,6 +23,7 @@ export default function ProductForm() {
 
   const [categories, setCategories] = useState([]);
   const [loading,    setLoading]    = useState(false);
+  const [uploading,  setUploading]  = useState(false);
   const [error,      setError]      = useState('');
   const [success,    setSuccess]    = useState('');
 
@@ -84,6 +85,29 @@ export default function ProductForm() {
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
     }));
+  }
+
+  async function handleImageChange(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setError('');
+    setSuccess('');
+    setUploading(true);
+
+    try {
+      const { url } = await api.uploadImages([file]);
+      setForm((prev) => ({ ...prev, imageUrl: url }));
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setUploading(false);
+      e.target.value = '';
+    }
+  }
+
+  function handleRemoveImage() {
+    setForm((prev) => ({ ...prev, imageUrl: '' }));
   }
 
   async function handleSubmit(e) {
@@ -200,21 +224,34 @@ export default function ProductForm() {
             </div>
 
             <div className="admin-form__field">
-              <label htmlFor="imageUrl">URL de la imagen</label>
+              <label htmlFor="imageFile">Imagen del producto</label>
               <input
-                id="imageUrl"
-                name="imageUrl"
-                value={form.imageUrl}
-                onChange={handleChange}
-                placeholder="https://..."
+                id="imageFile"
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                disabled={uploading}
               />
+              <small className="admin-form__hint">
+                {uploading ? 'Subiendo imagen...' : 'Seleccioná una imagen desde tu equipo.'}
+              </small>
               {form.imageUrl && (
-                <img
-                  src={form.imageUrl}
-                  alt="Vista previa"
-                  style={{ width: 120, height: 80, objectFit: 'cover', borderRadius: 8, marginTop: 8 }}
-                  onError={(e) => { e.target.style.display = 'none'; }}
-                />
+                <div className="admin-image-preview">
+                  <img
+                    src={form.imageUrl}
+                    alt="Vista previa"
+                    className="admin-image-preview__img"
+                    onError={(e) => { e.target.style.display = 'none'; }}
+                  />
+                  <button
+                    type="button"
+                    className="admin-btn admin-btn--secondary admin-btn--sm"
+                    onClick={handleRemoveImage}
+                  >
+                    <span className="material-symbols-outlined">delete</span>
+                    Quitar
+                  </button>
+                </div>
               )}
             </div>
 
@@ -254,9 +291,9 @@ export default function ProductForm() {
             )}
 
             <div className="admin-form__actions">
-              <button type="submit" className="admin-btn" disabled={loading}>
+              <button type="submit" className="admin-btn" disabled={loading || uploading}>
                 <span className="material-symbols-outlined">save</span>
-                {loading ? 'Guardando...' : isEdit ? 'Guardar cambios' : 'Crear producto'}
+                {loading ? 'Guardando...' : uploading ? 'Subiendo imagen...' : isEdit ? 'Guardar cambios' : 'Crear producto'}
               </button>
               <Link to="/admin/productos" className="admin-btn admin-btn--secondary">
                 Cancelar

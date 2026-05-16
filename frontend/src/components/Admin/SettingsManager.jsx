@@ -16,6 +16,9 @@ const SETTING_FIELDS = [
     { key: 'instagram_url', label: 'URL Instagram', placeholder: 'https://instagram.com/...' },
     { key: 'facebook_url',  label: 'URL Facebook',  placeholder: 'https://facebook.com/...' },
   ]},
+  { section: 'Imágenes del Sitio', fields: [
+    { key: 'hero_image_url', label: 'Imagen principal', type: 'image' },
+  ]},
 ];
 
 const EDITABLE_SETTING_KEYS = SETTING_FIELDS.flatMap((section) =>
@@ -27,6 +30,7 @@ export default function SettingsManager() {
   const [settings, setSettings] = useState({});
   const [loading,  setLoading]  = useState(true);
   const [saving,   setSaving]   = useState(false);
+  const [uploadingKey, setUploadingKey] = useState('');
   const [error,    setError]    = useState('');
   const [success,  setSuccess]  = useState('');
 
@@ -39,6 +43,27 @@ export default function SettingsManager() {
 
   function handleChange(key, value) {
     setSettings((prev) => ({ ...prev, [key]: value }));
+  }
+
+  async function handleImageChange(field, files) {
+    if (!files?.length) return;
+
+    setError('');
+    setSuccess('');
+    setUploadingKey(field.key);
+
+    try {
+      const result = await api.uploadImages(files);
+      handleChange(field.key, field.multiple ? result.urls.join('\n') : result.url);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setUploadingKey('');
+    }
+  }
+
+  function handleRemoveImage(key) {
+    handleChange(key, '');
   }
 
   async function handleSubmit(e) {
@@ -92,7 +117,46 @@ export default function SettingsManager() {
                 {section.fields.map((field) => (
                   <div key={field.key} className="admin-form__field">
                     <label htmlFor={field.key}>{field.label}</label>
-                    {field.type === 'textarea' ? (
+                    {field.type === 'image' ? (
+                      <>
+                        <input
+                          id={field.key}
+                          type="file"
+                          accept="image/*"
+                          multiple={!!field.multiple}
+                          disabled={uploadingKey === field.key}
+                          onChange={(e) => {
+                            handleImageChange(field, e.target.files);
+                            e.target.value = '';
+                          }}
+                        />
+                        <small className="admin-form__hint">
+                          {uploadingKey === field.key
+                            ? 'Subiendo imagen...'
+                            : field.multiple
+                              ? 'Seleccioná una o varias imágenes desde tu equipo.'
+                              : 'Seleccioná una imagen desde tu equipo.'}
+                        </small>
+                        {settings[field.key] && !field.multiple && (
+                          <div className="admin-image-preview">
+                            <img
+                              src={settings[field.key]}
+                              alt="Vista previa"
+                              className="admin-image-preview__img admin-image-preview__img--wide"
+                              onError={(e) => { e.target.style.display = 'none'; }}
+                            />
+                            <button
+                              type="button"
+                              className="admin-btn admin-btn--secondary admin-btn--sm"
+                              onClick={() => handleRemoveImage(field.key)}
+                            >
+                              <span className="material-symbols-outlined">delete</span>
+                              Quitar
+                            </button>
+                          </div>
+                        )}
+                      </>
+                    ) : field.type === 'textarea' ? (
                       <textarea
                         id={field.key}
                         value={settings[field.key] || ''}

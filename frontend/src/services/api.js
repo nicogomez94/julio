@@ -28,6 +28,24 @@ async function request(method, path, body) {
   return res.json();
 }
 
+async function uploadImages(files) {
+  const formData = new FormData();
+  Array.from(files).forEach((file) => formData.append('images', file));
+
+  const res = await fetch(`${BASE_URL}/uploads`, {
+    method: 'POST',
+    headers: authHeaders(),
+    body: formData,
+  });
+
+  if (!res.ok) {
+    const errorData = await res.json().catch(() => ({ error: 'Error de red' }));
+    throw new Error(errorData.error || 'Error al subir imagen');
+  }
+
+  return res.json();
+}
+
 export const api = {
   // Auth
   login: (password) => request('POST', '/auth/login', { password }),
@@ -51,4 +69,7 @@ export const api = {
   // Settings
   getSettings:    ()     => request('GET', '/settings'),
   updateSettings: (data) => request('PUT', '/settings', data),
+
+  // Uploads
+  uploadImages,
 };

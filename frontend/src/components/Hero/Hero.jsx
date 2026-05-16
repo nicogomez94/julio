@@ -58,9 +58,9 @@ export default function Hero() {
               Ver Menú Semanal
               <span className="material-symbols-outlined hero__btn-arrow">arrow_forward</span>
             </button>
-            <button className="hero__btn-secondary" onClick={scrollToHistoria}>
+            {/* <button className="hero__btn-secondary" onClick={scrollToHistoria}>
               Nuestra Historia
-            </button>
+            </button> */}
           </div>
 
           <div className="hero__features">
