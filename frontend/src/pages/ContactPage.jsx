@@ -12,13 +12,17 @@ export default function ContactPage() {
   const { settings } = useSettings();
   const phone = settings.whatsapp_number || '5491112345678';
   const whatsappUrl = buildWhatsAppUrl(phone, '¡Hola! Quiero hacer una consulta.');
+  const contactHeroImage = settings.contact_hero_image_url || 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=1600&auto=format&fit=crop&q=85';
 
   return (
     <>
       <Navbar />
       <main className="contact-page">
         <section className="contact-hero">
-          <div className="contact-hero__bg" />
+          <div
+            className="contact-hero__bg"
+            style={{ backgroundImage: `url(${JSON.stringify(contactHeroImage)})` }}
+          />
           <div className="container contact-hero__inner">
             <p className="contact-hero__label">Atención directa</p>
             <h1 className="contact-hero__title">Contacto</h1>

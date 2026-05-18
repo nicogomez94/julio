@@ -18,6 +18,8 @@ const SETTING_FIELDS = [
   ]},
   { section: 'Imágenes del Sitio', fields: [
     { key: 'hero_image_url', label: 'Imagen principal', type: 'image' },
+    { key: 'contact_hero_image_url', label: 'Hero Contacto', type: 'image' },
+    { key: 'about_image_url', label: 'Imagen Nosotros', type: 'image' },
   ]},
 ];
 

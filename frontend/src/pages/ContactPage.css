@@ -14,7 +14,6 @@
 .contact-hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1556911220-bff31c812dba?w=1600&auto=format&fit=crop&q=85');
   background-position: center 45%;
   background-size: cover;
   transform: scale(1.03);

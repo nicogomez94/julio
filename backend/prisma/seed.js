@@ -114,6 +114,7 @@ async function main() {
         value: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.6960862726445!2d-58.38375562346085!3d-34.60976807295628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccafc89b7e80b%3A0xb38ae34de95e68e0!2sPl.+de+Mayo%2C+Buenos+Aires!5e0!3m2!1ses!2sar!4v1715000000000!5m2!1ses!2sar',
       },
       { key: 'hero_image_url', value: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&auto=format&fit=crop' },
+      { key: 'contact_hero_image_url', value: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=1600&auto=format&fit=crop&q=85' },
       { key: 'hero_badge', value: 'Tradición Familiar desde 1992' },
       { key: 'hero_title', value: 'El placer de la comida real hecha en casa.' },
       { key: 'hero_subtitle', value: 'Recetas de la abuela, ingredientes del mercado y el cariño de siempre. Descubrí el sabor que nos define hace más de 30 años.' },
