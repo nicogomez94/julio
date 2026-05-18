@@ -22,9 +22,8 @@ export default function AdminLayout() {
       {/* Sidebar */}
       <aside className="admin-sidebar">
         <div className="admin-sidebar__brand">
-          <span className="admin-sidebar__logo">🍽</span>
+          <img className="admin-sidebar__logo" src="/logo.png" alt="Viandas Chanetón" />
           <div>
-            <p className="admin-sidebar__brand-name">Viandas Chanetón</p>
             <p className="admin-sidebar__brand-sub">Panel Admin</p>
           </div>
         </div>

@@ -32,8 +32,7 @@ export default function Navbar() {
     <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
       <div className="navbar__inner container">
         <div className="navbar__brand" onClick={goHome} style={{ cursor: 'pointer' }}>
-          <div className="navbar__logo-circle">🍽</div>
-          <span className="navbar__brand-name">Viandas Chanetón</span>
+          <img className="navbar__brand-logo" src="/logo.png" alt="Viandas Chanetón" />
         </div>
 
         <nav className={`navbar__links${menuOpen ? ' navbar__links--open' : ''}`}>
