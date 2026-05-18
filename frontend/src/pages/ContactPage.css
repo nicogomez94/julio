@@ -5,7 +5,7 @@
 
 .contact-hero {
   position: relative;
-  min-height: 440px;
+  min-height: 360px;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -36,34 +36,8 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  padding-bottom: 64px;
+  padding-bottom: 48px;
   color: #fff;
-}
-
-.contact-hero__back {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 40px;
-  padding: 6px 14px 6px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  transition: color 0.2s, background 0.2s, border-color 0.2s;
-}
-
-.contact-hero__back:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.16);
-  border-color: rgba(255, 255, 255, 0.35);
-}
-
-.contact-hero__back .material-symbols-outlined {
-  font-size: 17px;
 }
 
 .contact-hero__label {
@@ -150,14 +124,10 @@
 
 @media (max-width: 640px) {
   .contact-hero {
-    min-height: 390px;
+    min-height: 320px;
   }
 
   .contact-hero__inner {
-    padding-bottom: 44px;
-  }
-
-  .contact-hero__back {
-    margin-bottom: 28px;
+    padding-bottom: 36px;
   }
 }

@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar.jsx';
 import Contacto from '../components/Contacto/Contacto.jsx';
 import Footer from '../components/Footer/Footer.jsx';
@@ -21,10 +20,6 @@ export default function ContactPage() {
         <section className="contact-hero">
           <div className="contact-hero__bg" />
           <div className="container contact-hero__inner">
-            <Link to="/" className="contact-hero__back">
-              <span className="material-symbols-outlined">arrow_back</span>
-              Volver
-            </Link>
             <p className="contact-hero__label">Atención directa</p>
             <h1 className="contact-hero__title">Contacto</h1>
             <p className="contact-hero__sub">

@@ -11,7 +11,7 @@
 /* ── Hero ── */
 .menu-hero {
   position: relative;
-  height: 500px;
+  height: 380px;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -46,39 +46,12 @@
 .menu-hero__inner {
   position: relative;
   z-index: 1;
-  padding-bottom: 64px;
+  padding-bottom: 48px;
   width: 100%;
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.menu-hero__back {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: rgba(255,255,255,0.65);
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  margin-bottom: 40px;
-  padding: 6px 14px 6px 8px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(8px);
-  transition: all 0.2s;
-}
-
-.menu-hero__back:hover {
-  color: #fff;
-  background: rgba(255,255,255,0.16);
-  border-color: rgba(255,255,255,0.35);
-}
-
-.menu-hero__back .material-symbols-outlined {
-  font-size: 17px;
 }
 
 .menu-hero__label {
@@ -117,13 +90,13 @@
   color: rgba(255,255,255,0.65);
   max-width: 480px;
   line-height: 1.6;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
 .menu-hero__stats {
   display: flex;
   gap: 32px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .menu-hero__stat {

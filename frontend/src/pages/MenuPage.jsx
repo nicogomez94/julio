@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link }                from 'react-router-dom';
 import { api }                 from '../services/api.js';
 import { useCart }             from '../context/CartContext.jsx';
 import { formatPrice }         from '../utils/helpers.js';
@@ -60,10 +59,6 @@ export default function MenuPage() {
         <section className="menu-hero">
           <div className="menu-hero__bg" />
           <div className="container menu-hero__inner">
-            <Link to="/" className="menu-hero__back">
-              <span className="material-symbols-outlined">arrow_back</span>
-              Volver
-            </Link>
             <p className="menu-hero__label">Chaneton Viandas</p>
             <h1 className="menu-hero__title">Nuestro Menú</h1>
             <p className="menu-hero__sub">Cocina casera con ingredientes frescos, lista para disfrutar</p>
