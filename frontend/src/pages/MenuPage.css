@@ -96,7 +96,7 @@
 .menu-hero__stats {
   display: flex;
   gap: 32px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .menu-hero__stat {
