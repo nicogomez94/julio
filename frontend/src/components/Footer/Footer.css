@@ -92,6 +92,11 @@
   color: #fff;
 }
 
+.footer__social-btn .whatsapp-logo {
+  width: 19px;
+  height: 19px;
+}
+
 .footer__social-btn--wa:hover {
   background: #25D366;
   color: #fff;

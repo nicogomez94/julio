@@ -1,5 +1,6 @@
 import { useSettings }    from '../../context/SettingsContext.jsx';
 import { buildWhatsAppUrl } from '../../utils/helpers.js';
+import WhatsAppLogo from '../WhatsAppLogo/WhatsAppLogo.jsx';
 import './ComoPedir.css';
 
 const steps = [
@@ -9,7 +10,7 @@ const steps = [
     desc: 'Explorá nuestros especiales del día y armá tu pedido a gusto.',
   },
   {
-    icon: 'phone_iphone',
+    icon: 'whatsapp',
     title: '2. Pedí Online',
     desc: 'Confirmamos tu pedido al instante vía WhatsApp.',
   },
@@ -44,7 +45,11 @@ export default function ComoPedir() {
           {steps.map((step) => (
             <div key={step.title} className="como-pedir__step">
               <div className="como-pedir__step-icon">
-                <span className="material-symbols-outlined">{step.icon}</span>
+                {step.icon === 'whatsapp' ? (
+                  <WhatsAppLogo />
+                ) : (
+                  <span className="material-symbols-outlined">{step.icon}</span>
+                )}
               </div>
               <h3 className="como-pedir__step-title">{step.title}</h3>
               <p className="como-pedir__step-desc">{step.desc}</p>
@@ -58,7 +63,7 @@ export default function ComoPedir() {
             <p className="como-pedir__cta-desc">Consultanos por promociones especiales para empresas y reuniones familiares.</p>
           </div>
           <button className="como-pedir__cta-btn" onClick={handleWhatsApp}>
-            <span className="material-symbols-outlined">chat</span>
+            <WhatsAppLogo />
             Hablar por WhatsApp
           </button>
         </div>

@@ -1,6 +1,7 @@
 import { useCart }      from '../../context/CartContext.jsx';
 import { useSettings }  from '../../context/SettingsContext.jsx';
 import { formatPrice, buildWhatsAppUrl } from '../../utils/helpers.js';
+import WhatsAppLogo from '../WhatsAppLogo/WhatsAppLogo.jsx';
 import './CartDrawer.css';
 
 export default function CartDrawer() {
@@ -91,7 +92,7 @@ export default function CartDrawer() {
               <span className="cart-drawer__total-price">{formatPrice(totalPrice)}</span>
             </div>
             <button className="cart-drawer__whatsapp-btn" onClick={handleWhatsApp}>
-              <span className="material-symbols-outlined">chat</span>
+              <WhatsAppLogo />
               Enviar pedido por WhatsApp
             </button>
             <button className="cart-drawer__clear-btn" onClick={clearCart}>

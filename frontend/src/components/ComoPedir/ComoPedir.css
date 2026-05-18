@@ -81,7 +81,15 @@
   transition: color 0.3s;
 }
 
-.como-pedir__step:hover .como-pedir__step-icon .material-symbols-outlined {
+.como-pedir__step-icon .whatsapp-logo {
+  width: 40px;
+  height: 40px;
+  color: var(--color-primary);
+  transition: color 0.3s;
+}
+
+.como-pedir__step:hover .como-pedir__step-icon .material-symbols-outlined,
+.como-pedir__step:hover .como-pedir__step-icon .whatsapp-logo {
   color: var(--color-on-primary-container);
 }
 
@@ -159,6 +167,12 @@
   white-space: nowrap;
   box-shadow: var(--shadow-md);
   transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.como-pedir__cta-btn .whatsapp-logo {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 .como-pedir__cta-btn:hover {

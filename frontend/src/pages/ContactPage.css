@@ -107,6 +107,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-bottom: 20px;
 }
 
 .contact-hero__action {
@@ -124,6 +125,12 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
   transition: transform 0.15s, background 0.15s;
+}
+
+.contact-hero__action .whatsapp-logo {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
 .contact-hero__action:hover {

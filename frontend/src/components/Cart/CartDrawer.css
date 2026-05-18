@@ -253,6 +253,12 @@
   transition: filter 0.2s, transform 0.15s;
 }
 
+.cart-drawer__whatsapp-btn .whatsapp-logo {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
 .cart-drawer__whatsapp-btn:hover {
   filter: brightness(1.08);
   transform: translateY(-1px);

@@ -1,5 +1,6 @@
 import { useSettings }    from '../../context/SettingsContext.jsx';
 import { buildWhatsAppUrl } from '../../utils/helpers.js';
+import WhatsAppLogo from '../WhatsAppLogo/WhatsAppLogo.jsx';
 import './Footer.css';
 
 export default function Footer() {
@@ -49,7 +50,7 @@ export default function Footer() {
                 className="footer__social-btn footer__social-btn--wa"
                 aria-label="WhatsApp"
               >
-                <span className="material-symbols-outlined">chat</span>
+                <WhatsAppLogo />
               </a>
             </div>
           </div>

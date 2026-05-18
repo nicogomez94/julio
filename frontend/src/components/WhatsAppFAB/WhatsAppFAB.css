@@ -17,8 +17,9 @@
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.wa-fab .material-symbols-outlined {
-  font-size: 28px;
+.wa-fab .whatsapp-logo {
+  width: 30px;
+  height: 30px;
 }
 
 .wa-fab:hover {

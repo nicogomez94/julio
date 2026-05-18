@@ -4,6 +4,7 @@ import Contacto from '../components/Contacto/Contacto.jsx';
 import Footer from '../components/Footer/Footer.jsx';
 import CartDrawer from '../components/Cart/CartDrawer.jsx';
 import WhatsAppFAB from '../components/WhatsAppFAB/WhatsAppFAB.jsx';
+import WhatsAppLogo from '../components/WhatsAppLogo/WhatsAppLogo.jsx';
 import { useSettings } from '../context/SettingsContext.jsx';
 import { buildWhatsAppUrl } from '../utils/helpers.js';
 import './ContactPage.css';
@@ -31,7 +32,7 @@ export default function ContactPage() {
             </p>
             <div className="contact-hero__actions">
               <a className="contact-hero__action" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                <span className="material-symbols-outlined">chat</span>
+                <WhatsAppLogo />
                 WhatsApp
               </a>
               <a className="contact-hero__action contact-hero__action--light" href={`tel:${settings.phone || ''}`}>

@@ -132,6 +132,15 @@
   text-transform: uppercase;
   box-shadow: var(--shadow-md);
   transition: transform 0.15s, box-shadow 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar__cta .whatsapp-logo {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
 }
 
 .navbar__cta:hover {

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext.jsx';
 import { useSettings } from '../../context/SettingsContext.jsx';
+import WhatsAppLogo from '../WhatsAppLogo/WhatsAppLogo.jsx';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -54,6 +55,7 @@ export default function Navbar() {
           </button>
 
           <button className="navbar__cta" onClick={handlePedirAhora}>
+            <WhatsAppLogo />
             Pedir Ahora
           </button>
 

@@ -1,5 +1,6 @@
 import { useSettings }    from '../../context/SettingsContext.jsx';
 import { buildWhatsAppUrl } from '../../utils/helpers.js';
+import WhatsAppLogo from '../WhatsAppLogo/WhatsAppLogo.jsx';
 import './WhatsAppFAB.css';
 
 export default function WhatsAppFAB() {
@@ -15,7 +16,7 @@ export default function WhatsAppFAB() {
 
   return (
     <button className="wa-fab" onClick={handleClick} aria-label="Contactar por WhatsApp">
-      <span className="material-symbols-outlined">chat</span>
+      <WhatsAppLogo />
     </button>
   );
 }
