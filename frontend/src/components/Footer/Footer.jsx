@@ -72,10 +72,10 @@ export default function Footer() {
             <ul className="footer__links">
               <li className="footer__hours-item">
                 <span className="material-symbols-outlined">schedule</span>
-                {settings.schedule_weekdays || 'Lun a Sáb: 11:00 - 21:00'}
+                {settings.schedule_weekdays || 'Lun a Vie: 10:45 - 15:00'}
               </li>
               <li className="footer__hours-item footer__hours-item--indent">
-                {settings.schedule_weekend || 'Dom: 11:00 - 15:00'}
+                {settings.schedule_weekend || 'Sáb y Dom: Cerrado'}
               </li>
               <li className="footer__hours-item footer__hours-item--muted">Feriados consultar</li>
             </ul>
@@ -87,11 +87,11 @@ export default function Footer() {
             <ul className="footer__links">
               <li className="footer__hours-item footer__hours-item--align-top">
                 <span className="material-symbols-outlined">location_on</span>
-                {settings.address || 'Calle Falsa 123, Corazón del Barrio'}
+                {settings.address || 'Chanetón 999 esq. La Plata, Neuquén'}
               </li>
               <li className="footer__hours-item">
                 <span className="material-symbols-outlined">call</span>
-                {settings.phone || '0800-CHANETON'}
+                {settings.phone || '299-5189095'}
               </li>
             </ul>
           </div>
@@ -101,7 +101,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="footer__bottom">
         <div className="container footer__bottom-inner">
-          <span>© {new Date().getFullYear()} Viandas Chanetón. Calidad artesanal desde 1992.</span>
+          <span>© {new Date().getFullYear()} Viandas Chanetón. Calidad artesanal desde 2017.</span>
           <a
             href="https://zigodev.com.ar"
             target="_blank"

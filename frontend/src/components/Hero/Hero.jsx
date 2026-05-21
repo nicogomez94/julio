@@ -6,7 +6,7 @@ export default function Hero() {
   const { settings } = useSettings();
 
   const heroImage   = settings.hero_image_url || 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&auto=format&fit=crop';
-  const heroBadge   = settings.hero_badge     || 'Tradición Familiar desde 1992';
+  const heroBadge   = settings.hero_badge     || 'Viandas Chanetón desde 2017';
   const heroTitle   = settings.hero_title      || 'El placer de la comida real hecha en casa.';
   const heroSubtitle= settings.hero_subtitle   || 'Recetas de la abuela, ingredientes del mercado y el cariño de siempre.';
   const whatsapp    = settings.whatsapp_number  || '5491112345678';
@@ -35,6 +35,9 @@ export default function Hero() {
       {/* Content */}
       <div className="hero__content container">
         <div className="hero__body">
+          <div className="hero__logo-wrap">
+            <img src="/logo.svg" alt="Viandas Chanetón" className="hero__logo" />
+          </div>
           <div className="hero__badge-row">
             <span className="hero__badge-line" />
             <span className="hero__badge-text">{heroBadge}</span>
@@ -70,7 +73,7 @@ export default function Hero() {
             </div>
             <div className="hero__feature">
               <span className="material-symbols-outlined">local_shipping</span>
-              <span>Envío a Domicilio</span>
+              <span>Envío GRATIS</span>
             </div>
             <div className="hero__feature">
               <span className="material-symbols-outlined">timer</span>

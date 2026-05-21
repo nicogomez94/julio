@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: #1c0900;
+  background: #0c2200;
 }
 
 /* Background */
@@ -25,13 +25,13 @@
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,.8) 0%, rgba(0,0,0,.4) 60%, transparent 100%);
+  background: linear-gradient(to right, rgba(0,40,0,.88) 0%, rgba(0,25,0,.5) 60%, transparent 100%);
 }
 
 .hero__overlay-warm {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(112,45,0,.4) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(220,75,0,.45) 0%, transparent 55%);
 }
 
 /* Content */
@@ -45,6 +45,17 @@
 
 .hero__body {
   max-width: 700px;
+}
+
+/* Logo */
+.hero__logo-wrap {
+  margin-bottom: 28px;
+}
+
+.hero__logo {
+  height: 90px;
+  width: auto;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,.55));
 }
 
 /* Badge row */

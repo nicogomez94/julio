@@ -42,7 +42,7 @@ export default function Contacto() {
               </div>
               <div>
                 <strong>Dirección</strong>
-                <p>{settings.address || 'Calle Falsa 123, Buenos Aires'}</p>
+                <p>{settings.address || 'Chanetón 999 esq. La Plata, Neuquén'}</p>
               </div>
             </div>
             <div className="contacto__info-item">
@@ -51,8 +51,8 @@ export default function Contacto() {
               </div>
               <div>
                 <strong>Horarios</strong>
-                <p>{settings.schedule_weekdays || 'Lun a Sáb: 11:00 - 21:00'}</p>
-                <p>{settings.schedule_weekend  || 'Dom: 11:00 - 15:00'}</p>
+                <p>{settings.schedule_weekdays || 'Lun a Vie: 10:45 - 15:00'}</p>
+                <p>{settings.schedule_weekend  || 'Sáb y Dom: Cerrado'}</p>
                 <p className="contacto__feriados">Feriados consultar</p>
               </div>
             </div>
@@ -62,7 +62,7 @@ export default function Contacto() {
               </div>
               <div>
                 <strong>Teléfono</strong>
-                <p>{settings.phone || '0800-CHANETON'}</p>
+                <p>{settings.phone || '299-5189095'}</p>
               </div>
             </div>
           </div>
