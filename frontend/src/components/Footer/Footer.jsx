@@ -1,13 +1,20 @@
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useSettings }    from '../../context/SettingsContext.jsx';
 import { buildWhatsAppUrl } from '../../utils/helpers.js';
-import WhatsAppLogo from '../WhatsAppLogo/WhatsAppLogo.jsx';
 import './Footer.css';
 
 export default function Footer() {
   const { settings } = useSettings();
+  const location      = useLocation();
+  const navigate      = useNavigate();
   const phone        = settings.whatsapp_number || '5491112345678';
 
   function scrollTo(id) {
+    if (location.pathname !== '/') {
+      navigate(`/#${id}`);
+      return;
+    }
+
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   }
 
@@ -22,7 +29,7 @@ export default function Footer() {
               <h3 className="footer__brand-name">Viandas Chanetón</h3>
             </div>
             <p className="footer__brand-desc">
-              Calidad casera desde 1992 en el corazón del barrio. Sabor que une a la familia en cada mesa.
+              Calidad casera desde 2017 en el corazón del barrio. Sabor que une a la familia en cada mesa.
             </p>
             <div className="footer__social">
               <a
@@ -32,7 +39,7 @@ export default function Footer() {
                 className="footer__social-btn"
                 aria-label="Facebook"
               >
-                <span className="material-symbols-outlined">public</span>
+                <i className="fa-brands fa-facebook-f" aria-hidden="true"></i>
               </a>
               <a
                 href={settings.instagram_url || '#'}
@@ -41,7 +48,7 @@ export default function Footer() {
                 className="footer__social-btn"
                 aria-label="Instagram"
               >
-                <span className="material-symbols-outlined">photo_camera</span>
+                <i className="fa-brands fa-instagram" aria-hidden="true"></i>
               </a>
               <a
                 href={buildWhatsAppUrl(phone, '¡Hola!')}
@@ -50,7 +57,7 @@ export default function Footer() {
                 className="footer__social-btn footer__social-btn--wa"
                 aria-label="WhatsApp"
               >
-                <WhatsAppLogo />
+                <i className="fa-brands fa-whatsapp" aria-hidden="true"></i>
               </a>
             </div>
           </div>

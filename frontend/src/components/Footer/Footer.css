@@ -92,9 +92,9 @@
   color: #fff;
 }
 
-.footer__social-btn .whatsapp-logo {
-  width: 19px;
-  height: 19px;
+.footer__social-btn i {
+  font-size: 18px;
+  line-height: 1;
 }
 
 .footer__social-btn--wa:hover {

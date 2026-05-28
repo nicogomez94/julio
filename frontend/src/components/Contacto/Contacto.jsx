@@ -1,9 +1,11 @@
 import { useSettings } from '../../context/SettingsContext.jsx';
+import { buildWhatsAppUrl } from '../../utils/helpers.js';
 import './Contacto.css';
 
 export default function Contacto() {
   const { settings } = useSettings();
   const mapsUrl = settings.maps_embed_url || '';
+  const phone = settings.whatsapp_number || '5491112345678';
 
   return (
     <section id="contacto" className="contacto section-xl">
@@ -63,6 +65,43 @@ export default function Contacto() {
               <div>
                 <strong>Teléfono</strong>
                 <p>{settings.phone || '299-5189095'}</p>
+              </div>
+            </div>
+            <div className="contacto__info-item">
+              <div className="contacto__info-icon">
+                <span className="material-symbols-outlined">share</span>
+              </div>
+              <div>
+                <strong>Redes sociales</strong>
+                <div className="contacto__social">
+                  <a
+                    href={settings.facebook_url || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contacto__social-btn"
+                    aria-label="Facebook"
+                  >
+                    <i className="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                  </a>
+                  <a
+                    href={settings.instagram_url || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contacto__social-btn"
+                    aria-label="Instagram"
+                  >
+                    <i className="fa-brands fa-instagram" aria-hidden="true"></i>
+                  </a>
+                  <a
+                    href={buildWhatsAppUrl(phone, '¡Hola! Quiero hacer una consulta.')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contacto__social-btn contacto__social-btn--wa"
+                    aria-label="WhatsApp"
+                  >
+                    <i className="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

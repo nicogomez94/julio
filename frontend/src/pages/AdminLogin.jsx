@@ -11,7 +11,11 @@ export default function AdminLogin() {
   const debug      = isDebugMode();
 
   const [password, setPassword] = useState(debug ? 'admin123' : '');
-  const [error,    setError]    = useState('');
+  const [error,    setError]    = useState(() => {
+    const message = localStorage.getItem('admin_auth_message') || '';
+    localStorage.removeItem('admin_auth_message');
+    return message;
+  });
   const [loading,  setLoading]  = useState(false);
 
   useEffect(() => {

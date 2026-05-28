@@ -1,4 +1,11 @@
 const BASE_URL = '/api';
+const AUTH_EXPIRED_MESSAGE = 'Tu sesión expiró. Ingresá de nuevo para continuar.';
+
+function handleAuthExpired() {
+  localStorage.removeItem('admin_token');
+  localStorage.setItem('admin_auth_message', AUTH_EXPIRED_MESSAGE);
+  window.dispatchEvent(new Event('admin-auth-expired'));
+}
 
 function getToken() {
   return localStorage.getItem('admin_token');
@@ -23,6 +30,9 @@ async function request(method, path, body) {
   const res = await fetch(`${BASE_URL}${path}`, options);
   if (!res.ok) {
     const errorData = await res.json().catch(() => ({ error: 'Error de red' }));
+    if (res.status === 401) {
+      handleAuthExpired();
+    }
     throw new Error(errorData.error || 'Error desconocido');
   }
   return res.json();
@@ -40,6 +50,9 @@ async function uploadImages(files) {
 
   if (!res.ok) {
     const errorData = await res.json().catch(() => ({ error: 'Error de red' }));
+    if (res.status === 401) {
+      handleAuthExpired();
+    }
     throw new Error(errorData.error || 'Error al subir imagen');
   }
 
