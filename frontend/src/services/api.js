@@ -5,6 +5,10 @@ function handleAuthExpired() {
   localStorage.removeItem('admin_token');
   localStorage.setItem('admin_auth_message', AUTH_EXPIRED_MESSAGE);
   window.dispatchEvent(new Event('admin-auth-expired'));
+
+  if (window.location.pathname !== '/admin/login') {
+    window.location.replace('/admin/login');
+  }
 }
 
 function getToken() {
@@ -30,7 +34,7 @@ async function request(method, path, body) {
   const res = await fetch(`${BASE_URL}${path}`, options);
   if (!res.ok) {
     const errorData = await res.json().catch(() => ({ error: 'Error de red' }));
-    if (res.status === 401) {
+    if (res.status === 401 && path !== '/auth/login') {
       handleAuthExpired();
     }
     throw new Error(errorData.error || 'Error desconocido');
