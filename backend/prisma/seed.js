@@ -205,7 +205,7 @@ async function main() {
       { key: 'schedule_weekend', value: 'Sáb y Dom: Cerrado' },
       {
         key: 'maps_embed_url',
-        value: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.6960862726445!2d-58.38375562346085!3d-34.60976807295628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccafc89b7e80b%3A0xb38ae34de95e68e0!2sPl.+de+Mayo%2C+Buenos+Aires!5e0!3m2!1ses!2sar!4v1715000000000!5m2!1ses!2sar',
+        value: 'https://www.google.com/maps?q=Chanet%C3%B3n%20999%20esq.%20La%20Plata%2C%20Neuqu%C3%A9n&output=embed',
       },
       { key: 'hero_image_url', value: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&auto=format&fit=crop' },
       { key: 'contact_hero_image_url', value: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=1600&auto=format&fit=crop&q=85' },

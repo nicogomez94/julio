@@ -2,9 +2,19 @@ import { useSettings } from '../../context/SettingsContext.jsx';
 import { buildWhatsAppUrl } from '../../utils/helpers.js';
 import './Contacto.css';
 
+const DEFAULT_ADDRESS = 'Chanetón 999 esq. La Plata, Neuquén';
+
+function buildMapsEmbedUrl(address) {
+  const normalizedAddress = address?.trim();
+  if (!normalizedAddress) return '';
+
+  return `https://www.google.com/maps?q=${encodeURIComponent(normalizedAddress)}&output=embed`;
+}
+
 export default function Contacto() {
   const { settings } = useSettings();
-  const mapsUrl = settings.maps_embed_url || '';
+  const address = settings.address?.trim() || DEFAULT_ADDRESS;
+  const mapsUrl = buildMapsEmbedUrl(address) || settings.maps_embed_url || '';
   const phone = settings.whatsapp_number || '5491112345678';
 
   return (
@@ -44,7 +54,7 @@ export default function Contacto() {
               </div>
               <div>
                 <strong>Dirección</strong>
-                <p>{settings.address || 'Chanetón 999 esq. La Plata, Neuquén'}</p>
+                <p>{address}</p>
               </div>
             </div>
             <div className="contacto__info-item">
