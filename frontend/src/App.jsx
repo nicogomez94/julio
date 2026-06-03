@@ -21,7 +21,7 @@ function PrivateRoute({ children }) {
 
 function DebugBanner() {
   if (!isDebugMode()) return null;
-  return <div className="debug-banner">⚠ MODO DEBUG ACTIVO – Formularios prerellenos</div>;
+  return <div className="debug-banner">⚠ MODO DE PRUEBA ACTIVO – Formularios prerrellenos</div>;
 }
 
 export default function App() {

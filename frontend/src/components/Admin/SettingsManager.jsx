@@ -5,20 +5,20 @@ import '../../pages/AdminLayout.css';
 
 const SETTING_FIELDS = [
   { section: 'WhatsApp y Contacto', fields: [
-    { key: 'whatsapp_number', label: 'Número WhatsApp (con código de país, sin +)', placeholder: '5491112345678' },
+    { key: 'whatsapp_number', label: 'Número de WhatsApp (con código de país, sin +)', placeholder: '5491112345678' },
     { key: 'phone',           label: 'Teléfono para mostrar',                       placeholder: '0800-CHANETON' },
     { key: 'address',         label: 'Dirección',                                   placeholder: 'Calle Falsa 123...' },
     { key: 'schedule_weekdays', label: 'Horario semana',                            placeholder: 'Lun a Sáb: 11:00 - 21:00' },
     { key: 'schedule_weekend',  label: 'Horario fin de semana',                     placeholder: 'Dom: 11:00 - 15:00' },
-    { key: 'maps_embed_url',    label: 'URL embed Google Maps (iframe src)',        placeholder: 'https://www.google.com/maps/embed?...', type: 'textarea' },
+    { key: 'maps_embed_url',    label: 'Dirección del mapa de Google',              placeholder: 'https://www.google.com/maps/embed?...', type: 'textarea' },
   ]},
   { section: 'Redes Sociales', fields: [
-    { key: 'instagram_url', label: 'URL Instagram', placeholder: 'https://instagram.com/...' },
-    { key: 'facebook_url',  label: 'URL Facebook',  placeholder: 'https://facebook.com/...' },
+    { key: 'instagram_url', label: 'Dirección de Instagram', placeholder: 'https://instagram.com/...' },
+    { key: 'facebook_url',  label: 'Dirección de Facebook',  placeholder: 'https://facebook.com/...' },
   ]},
   { section: 'Imágenes del Sitio', fields: [
     { key: 'hero_image_url', label: 'Imagen principal', type: 'image' },
-    { key: 'contact_hero_image_url', label: 'Hero Contacto', type: 'image' },
+    { key: 'contact_hero_image_url', label: 'Portada de contacto', type: 'image' },
     { key: 'about_image_url', label: 'Imagen Nosotros', type: 'image' },
   ]},
 ];
@@ -104,7 +104,7 @@ export default function SettingsManager() {
       {debug && (
         <div className="admin-alert admin-alert--success" style={{ marginBottom: 16 }}>
           <span className="material-symbols-outlined">bug_report</span>
-          Modo debug activo — editando configuración en tiempo real.
+          Modo de prueba activo — editando configuración en tiempo real.
         </div>
       )}
 

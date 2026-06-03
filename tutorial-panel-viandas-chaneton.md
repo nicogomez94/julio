@@ -23,7 +23,7 @@ Entrar al panel, escribir la contraseña y hacer clic en `Ingresar`.
 2. Para agregar uno nuevo, hacer clic en `Nuevo Producto`.
 3. Completar `Nombre del producto`, `Categoría`, `Descripción` y `Precio (ARS)`.
 4. En `Imagen del producto`, subir una foto clara desde la computadora.
-5. Si corresponde, completar `Badge / Etiqueta`, por ejemplo `PROMO` o `RECOMENDADO`.
+5. Si corresponde, completar `Etiqueta`, por ejemplo `PROMO` o `RECOMENDADO`.
 6. Hacer clic en `Crear producto` o `Guardar cambios`.
 
 Para cambiar un producto existente, ir a `Productos` y hacer clic en `Editar`.
@@ -36,7 +36,7 @@ Para mostrarlo en la sección de destacados, marcar `Destacado (aparece en Espec
 
 1. Ir a `Categorías`.
 2. Para crear una categoría, completar `Nombre`.
-3. Dejar `Slug` como aparece automáticamente.
+3. Dejar `Identificador` como aparece automáticamente.
 4. Hacer clic en `Crear categoría`.
 5. Para cambiar una categoría existente, usar `Editar`.
 
@@ -46,7 +46,7 @@ Una categoría solo se puede eliminar si no tiene productos asociados.
 
 1. Ir a `Configuración`.
 2. En `WhatsApp y Contacto`, revisar WhatsApp, teléfono, dirección y horarios.
-3. En `Redes Sociales`, cambiar las URLs de Instagram o Facebook.
+3. En `Redes Sociales`, cambiar las direcciones web de Instagram o Facebook.
 4. Hacer clic en `Guardar configuración`.
 5. Revisar el sitio para confirmar que se vea bien.
 
@@ -56,7 +56,7 @@ Importante: en `Número WhatsApp (con código de país, sin +)`, escribir el nú
 
 1. Ir a `Configuración`.
 2. Buscar la sección `Imágenes del Sitio`.
-3. Cambiar `Imagen principal`, `Hero Contacto` o `Imagen Nosotros`.
+3. Cambiar `Imagen principal`, `Portada de contacto` o `Imagen Nosotros`.
 4. Esperar a que termine de subir la imagen.
 5. Hacer clic en `Guardar configuración`.
 
@@ -75,6 +75,6 @@ Pedir ayuda para:
 - Cambiar el diseño del sitio.
 - Agregar secciones nuevas.
 - Cambiar botones, menú o pie de página.
-- Configurar el mapa si no tenés la URL correcta.
+- Configurar el mapa si no tenés la dirección correcta.
 - Recuperar o cambiar la contraseña del panel.
 - Resolver errores al guardar o subir imágenes.

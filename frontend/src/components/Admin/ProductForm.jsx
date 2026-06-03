@@ -9,7 +9,7 @@ const DEBUG_DEFAULTS = {
   description: 'Descripción de prueba para verificar que el formulario funciona correctamente en modo debug.',
   price:       '1500',
   imageUrl:    'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&auto=format&fit=crop',
-  badge:       'PRUEBA',
+  etiqueta:    'PRUEBA',
   featured:    true,
   active:      true,
   categoryId:  '',
@@ -32,17 +32,17 @@ export default function ProductForm() {
     description: '',
     price:       '',
     imageUrl:    '',
-    badge:       '',
+    etiqueta:    '',
     featured:    false,
     active:      true,
     categoryId:  '',
   });
 
-  // Load categories
+      // Cargar categorías
   useEffect(() => {
     api.getCategories().then((cats) => {
       setCategories(cats);
-      // If debug and no category selected yet, pick first
+      // Si está en modo de prueba y no hay categoría elegida, usar la primera
       if (debug && !isEdit && cats.length > 0) {
         setForm((prev) => ({
           ...DEBUG_DEFAULTS,
@@ -69,7 +69,7 @@ export default function ProductForm() {
           description: product.description || '',
           price:       String(product.price),
           imageUrl:    product.imageUrl    || '',
-          badge:       product.badge       || '',
+          etiqueta:    product.badge       || '',
           featured:    product.featured,
           active:      product.active,
           categoryId:  String(product.categoryId),
@@ -116,11 +116,15 @@ export default function ProductForm() {
     setSuccess('');
     setLoading(true);
     try {
+      const payload = {
+        ...form,
+        badge: form.etiqueta,
+      };
       if (isEdit) {
-        await api.updateProduct(id, form);
+        await api.updateProduct(id, payload);
         setSuccess('Producto actualizado correctamente.');
       } else {
-        await api.createProduct(form);
+        await api.createProduct(payload);
         setSuccess('Producto creado correctamente.');
         setTimeout(() => navigate('/admin/productos'), 800);
       }
@@ -146,7 +150,7 @@ export default function ProductForm() {
       {debug && (
         <div className="admin-alert admin-alert--success" style={{ marginBottom: 16 }}>
           <span className="material-symbols-outlined">bug_report</span>
-          Modo debug activo — formulario prerelleno con datos de prueba.
+          Modo de prueba activo — formulario prerrelleno con datos de prueba.
         </div>
       )}
 
@@ -212,13 +216,13 @@ export default function ProductForm() {
                 />
               </div>
               <div className="admin-form__field">
-                <label htmlFor="badge">Badge / Etiqueta</label>
+                <label htmlFor="etiqueta">Etiqueta</label>
                 <input
-                  id="badge"
-                  name="badge"
-                  value={form.badge}
+                  id="etiqueta"
+                  name="etiqueta"
+                  value={form.etiqueta}
                   onChange={handleChange}
-                  placeholder="Ej: RECOMENDADO, PROMO, Éxito de Ventas"
+                  placeholder="Ej: RECOMENDADO, PROMO, Éxito de ventas"
                 />
               </div>
             </div>

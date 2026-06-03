@@ -41,12 +41,12 @@ export default function AdminLogin() {
     <div className="admin-login">
       <div className="admin-login__card">
         <div className="admin-login__logo">🍽</div>
-        <h1 className="admin-login__title">Panel Administrador</h1>
+        <h1 className="admin-login__title">Panel de administración</h1>
         <p className="admin-login__subtitle">Viandas Chanetón</p>
 
         {debug && (
           <div className="admin-login__debug-hint">
-            Modo debug: contraseña prerellena con <code>admin123</code>
+            Modo de prueba: contraseña prerrellena con <code>admin123</code>
           </div>
         )}
 

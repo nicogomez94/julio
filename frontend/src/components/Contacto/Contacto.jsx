@@ -41,7 +41,7 @@ export default function Contacto() {
               <div className="contacto__map-placeholder">
                 <span className="material-symbols-outlined">location_on</span>
                 <p>Mapa no configurado</p>
-                <small>Configurar URL en el panel de administración</small>
+                <small>Configurar la dirección en el panel de administración</small>
               </div>
             )}
           </div>

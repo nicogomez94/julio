@@ -3,7 +3,7 @@ import { api }        from '../../services/api.js';
 import { isDebugMode, slugify } from '../../utils/helpers.js';
 import '../../pages/AdminLayout.css';
 
-const DEBUG_CAT = { name: 'Categoría Debug', slug: 'categoria-debug' };
+const DEBUG_CAT = { name: 'Categoría de prueba', identificador: 'categoria-de-prueba' };
 
 export default function CategoryManager() {
   const debug = isDebugMode();
@@ -15,7 +15,7 @@ export default function CategoryManager() {
   const [editingId,  setEditingId]  = useState(null);
 
   const [form, setForm] = useState(
-    debug ? DEBUG_CAT : { name: '', slug: '' }
+    debug ? DEBUG_CAT : { name: '', identificador: '' }
   );
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function CategoryManager() {
     const { name, value } = e.target;
     setForm((prev) => {
       const updated = { ...prev, [name]: value };
-      if (name === 'name') updated.slug = slugify(value);
+      if (name === 'name') updated.identificador = slugify(value);
       return updated;
     });
   }
@@ -39,16 +39,17 @@ export default function CategoryManager() {
     setError('');
     setSuccess('');
     try {
+      const payload = { name: form.name, slug: form.identificador };
       if (editingId) {
-        const updated = await api.updateCategory(editingId, form);
+        const updated = await api.updateCategory(editingId, payload);
         setCategories((prev) => prev.map((c) => (c.id === editingId ? updated : c)));
         setSuccess('Categoría actualizada.');
       } else {
-        const created = await api.createCategory(form);
+        const created = await api.createCategory(payload);
         setCategories((prev) => [...prev, created]);
         setSuccess('Categoría creada.');
       }
-      setForm(debug ? DEBUG_CAT : { name: '', slug: '' });
+      setForm(debug ? DEBUG_CAT : { name: '', identificador: '' });
       setEditingId(null);
     } catch (err) {
       setError(err.message);
@@ -57,14 +58,14 @@ export default function CategoryManager() {
 
   function startEdit(cat) {
     setEditingId(cat.id);
-    setForm({ name: cat.name, slug: cat.slug });
+    setForm({ name: cat.name, identificador: cat.slug });
     setError('');
     setSuccess('');
   }
 
   function cancelEdit() {
     setEditingId(null);
-    setForm(debug ? DEBUG_CAT : { name: '', slug: '' });
+    setForm(debug ? DEBUG_CAT : { name: '', identificador: '' });
     setError('');
   }
 
@@ -94,7 +95,7 @@ export default function CategoryManager() {
           {debug && !editingId && (
             <div className="admin-alert admin-alert--success" style={{ marginBottom: 16 }}>
               <span className="material-symbols-outlined">bug_report</span>
-              Modo debug — formulario prerelleno.
+              Modo de prueba — formulario prerrelleno.
             </div>
           )}
 
@@ -112,11 +113,11 @@ export default function CategoryManager() {
                 />
               </div>
               <div className="admin-form__field">
-                <label htmlFor="cat-slug">Slug</label>
+                <label htmlFor="cat-slug">Identificador</label>
                 <input
                   id="cat-slug"
-                  name="slug"
-                  value={form.slug}
+                  name="identificador"
+                  value={form.identificador}
                   onChange={handleChange}
                   placeholder="especiales"
                   required
@@ -166,7 +167,7 @@ export default function CategoryManager() {
               <thead>
                 <tr>
                   <th>Nombre</th>
-                  <th>Slug</th>
+                  <th>Identificador</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
